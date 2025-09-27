@@ -1,0 +1,460 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2128 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9d1d9;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Logo/Brand positioning */
+body::after {
+  content: 'StackIt';
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  font-weight: 700;
+  color: #f0f6fc;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+/* Background pattern */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(88, 166, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(57, 211, 83, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 171, 0, 0.05) 0%, transparent 50%);
+  animation: float 20s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Main container */
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  min-height: 500px;
+  background: rgba(22, 27, 34, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(48, 54, 61, 0.8);
+  border-radius: 16px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  overflow: hidden;
+  position: relative;
+  margin: 20px;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #58a6ff, #39d353, #ffab00, #f85149);
+  animation: shimmer 3s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 200% 0; }
+  50% { background-position: -200% 0; }
+}
+
+/* Form container (left side) */
+.form-container {
+  flex: 1;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(13, 17, 23, 0.9) 0%, rgba(22, 27, 34, 0.7) 100%);
+  position: relative;
+}
+
+.form-container::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, #30363d, transparent);
+}
+
+.form-container h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #f0f6fc;
+  margin-bottom: 32px;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.form-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #58a6ff, #39d353);
+  border-radius: 2px;
+}
+
+.form-container::before {
+  display: none;
+}
+
+/* Form inputs with enhanced styling */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 16px 20px;
+  margin: 12px 0;
+  background: rgba(13, 17, 23, 0.8);
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #c9d1d9;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  position: relative;
+}
+
+/* Input icons */
+input[type="email"] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%237d8590' viewBox='0 0 16 16'%3E%3Cpath d='M2 2A2 2 0 0 0 0 4v.993c0 .117.005.235.016.352l7.984 4.488 7.984-4.488c.011-.117.016-.235.016-.352V4a2 2 0 0 0-2-2H2zm14 2.466V12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4.466l7.656 4.302a.5.5 0 0 0 .688 0L16 4.466z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px) center;
+  padding-right: 48px;
+}
+
+input[type="password"] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%237d8590' viewBox='0 0 16 16'%3E%3Cpath d='M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px) center;
+  padding-right: 48px;
+}
+
+input::placeholder {
+  color: #7d8590;
+  opacity: 1;
+}
+
+input:focus {
+  border-color: #58a6ff;
+  background: rgba(22, 27, 34, 0.9);
+  box-shadow: 
+    0 0 0 3px rgba(88, 166, 255, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+input:hover {
+  border-color: #484f58;
+}
+
+/* Forgot password link */
+.form-container a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 8px 0 24px;
+  text-align: right;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.form-container a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #58a6ff;
+  transition: width 0.3s ease;
+}
+
+.form-container a:hover {
+  color: #79c0ff;
+}
+
+.form-container a:hover::after {
+  width: 100%;
+}
+
+/* Submit button */
+#submit {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 16px rgba(35, 134, 54, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+#submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+#submit:hover {
+  background: linear-gradient(135deg, #2ea043 0%, #238636 100%);
+  box-shadow: 0 6px 20px rgba(35, 134, 54, 0.4);
+  transform: translateY(-2px);
+}
+
+#submit:hover::before {
+  left: 100%;
+}
+
+#submit:active {
+  transform: translateY(0);
+}
+
+#submit:focus {
+  outline: 2px solid #58a6ff;
+  outline-offset: 2px;
+}
+
+/* Enhanced welcome container */
+.welcome-container {
+  flex: 1;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(22, 27, 34, 0.7) 0%, rgba(28, 33, 40, 0.9) 100%);
+  position: relative;
+}
+
+.welcome-container::before {
+  content: '🚀';
+  position: absolute;
+  top: 40px;
+  font-size: 40px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.welcome-container h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #f0f6fc;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #58a6ff, #39d353);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.welcome-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, #58a6ff, #39d353);
+  border-radius: 1px;
+}
+
+.welcome-container p {
+  font-size: 18px;
+  color: #8b949e;
+  margin-bottom: 32px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Enhanced register button */
+.welcome-container button {
+  padding: 14px 36px;
+  background: transparent;
+  color: #58a6ff;
+  border: 2px solid #58a6ff;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(88, 166, 255, 0.1);
+}
+
+.welcome-container button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #58a6ff;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.welcome-container button:hover {
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(88, 166, 255, 0.4);
+  border-color: #79c0ff;
+}
+
+.welcome-container button:hover::before {
+  left: 0;
+}
+
+.welcome-container button:active {
+  transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    max-width: 400px;
+    margin: 10px;
+  }
+  
+  .form-container,
+  .welcome-container {
+    padding: 40px 30px;
+  }
+  
+  .form-container::after {
+    display: none;
+  }
+  
+  .welcome-container::before {
+    display: none;
+  }
+  
+  .form-container h2,
+  .welcome-container h2 {
+    font-size: 28px;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    padding: 14px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container,
+  .welcome-container {
+    padding: 30px 20px;
+  }
+  
+  .container {
+    margin: 5px;
+  }
+}
+
+/* Loading state */
+.loading #submit {
+  background: #484f58;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.loading #submit::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #ffffff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error states */
+.error input[type="email"],
+.error input[type="password"] {
+  border-color: #f85149;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Success animation */
+.success .form-container {
+  animation: success-pulse 0.6s ease-out;
+}
+
+@keyframes success-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}

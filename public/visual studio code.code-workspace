@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "../../../../Users/drsol/Desktop/visual studio code"
+		},
+		{
+			"path": "../../../../Users/drsol/Desktop/OOPs ASSIGNMENT 1"
+		},
+		{
+			"path": "../../../../xampp/htdocs/PHP_CWH"
+		},
+		{
+			"path": "../../../../Users/drsol/Downloads/1709213058678-WorldBestJSCourse_advanced"
+		},
+		{
+			"path": "../../../../Users/drsol/Desktop/Vishruti/Aashwi Fasion Designer/Aashwi Fasion Designer"
+		},
+		{
+			"path": "../../phppractice"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "visual studio code",
+		"files.associations": {
+			"iostream": "cpp",
+			"ostream": "cpp"
+		}
+	}
+}
