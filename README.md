@@ -17,9 +17,10 @@ It’s designed to be **simple, user-friendly, and focused** on the core experie
 
 ## 📂 Project Structure  
 
-│── app/ # Backend (views, forms, etc.)
-│── css/ # Stylesheets
-│── includes/ # Config & database connection
-│── js/ # JavaScript logic
-│── public/ # Public PHP pages (entry points)
+│── app/          # Backend (views, forms, etc.)
+│── css/          # Stylesheets
+│── includes/     # Config & database connection
+│── js/           # JavaScript logic
+│── public/       # Public PHP pages (entry points)
 │── videosphotos/ # Media uploads (images/videos)
+
